@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My SHOP{% endblock %}</title>
+    <link rel="stylesheet" href="{% static "/css/style.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css" integrity="sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ" crossorigin="anonymous">
+</head>
+<body>
+<header>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">Главная <span class="sr-only">(current)</span></a>
+      </li>
+        {% block menu %}
+        {% endblock %}
+    </ul>
+  </div>
+</nav>
+</header>
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+</div>
+</body>
+</html>
