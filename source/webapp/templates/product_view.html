@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}View{% endblock %}
+
+{% block menu %}
+{#    <li><a href="{% url 'article_update' article.pk %}">Update</a></li>#}
+{#    <li><a href="{% url 'article_delete' article.pk %}">Delete</a></li>#}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ product.name }}</h1>
+    <p>Категория: {{ product.get_category_display }}</p>
+    <p>Описание: {{ product.description }}</p>
+    <p>Остаток: {{ product.amount }}</p>
+    <p>Цена: {{ product.price }}</p>
+{% endblock %}
