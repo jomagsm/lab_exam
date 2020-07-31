@@ -88,3 +88,12 @@ def product_delete_view(request, pk):
     elif request.method == 'POST':
         product.delete()
         return redirect('index')
+
+
+def filter_name_view(request):
+    name = request.GET['name']
+    data = Product.objects.filter(name__icontains=name)
+    if data:
+        return render(request, 'index.html', context={
+            'products': data})
+    return redirect('index')
