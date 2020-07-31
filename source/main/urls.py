@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from webapp.views import index_view, view_product, product_create_view, product_update_view, product_delete_view, \
-    filter_name_view
+    filter_name_view, filter_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('product_create/', product_create_view, name='product_create'),
     path('product_update/<int:pk>',product_update_view, name='product_update'),
     path('product_delete/<int:pk>', product_delete_view, name='product_delete'),
-    path('filter_name/', filter_name_view, name='filter_name')
+    path('filter_name/', filter_name_view, name='filter_name'),
+    path('filter_category/<category>', filter_category, name='filter_category')
 ]

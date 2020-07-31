@@ -4,7 +4,7 @@ from django.http import HttpResponseNotAllowed, QueryDict
 from django.shortcuts import render, get_object_or_404, redirect
 
 from webapp.forms import ProductForm
-from webapp.models import Product
+from webapp.models import Product, CATEGORY_CHOICE, DEFAUL_CATEGORY
 
 
 def index_view(request):
@@ -15,7 +15,8 @@ def index_view(request):
         data = Product.objects.filter(amount__gt=1)
         order_date = data.order_by('category', 'name')
     return render(request, 'index.html', context={
-        'products': order_date
+        'products': order_date,
+        'category': CATEGORY_CHOICE
     })
 
 
@@ -96,4 +97,18 @@ def filter_name_view(request):
     if data:
         return render(request, 'index.html', context={
             'products': data})
+    return redirect('index')
+
+
+def filter_category(request,category):
+    data = Product.objects.filter(category=category)
+    if data:
+        order_date = data.order_by('name')
+        for i in CATEGORY_CHOICE:
+            if category in i:
+                sel_cat = i
+        return render(request, 'product_category_filter.html', context={
+            'products': order_date,
+            'category': CATEGORY_CHOICE,
+            'sel_cat':sel_cat})
     return redirect('index')

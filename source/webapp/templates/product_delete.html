@@ -2,13 +2,13 @@
 {% block title %}Delete Article{% endblock %}
 {% block content %}
     <div class="col-9">
-    <p class="text-center mt-5">Are you sure want to delete article "{{ product}}"?</p>
-    <form method="POST" action="{% url "product_delete" product.pk %}" class="text-center">
-        {% csrf_token %}
-        <p><input class=" btn btn-outline-dark btn-sm mb-1 mr-2" type="submit" value="Confirm">
-        <a class=" btn btn-outline-dark btn-sm mb-1 mr-2" href=" {% url 'view' product.pk %}" role="button">Cancel
-        </a></p>
-{#            <p><a href="{% url "find" article.pk %}">Cancel</a></p>#}
-    </form>
+        <p class="text-center mt-5">Are you sure want to delete article "{{ product }}"?</p>
+        <form method="POST" action="{% url "product_delete" product.pk %}" class="text-center">
+            {% csrf_token %}
+            <p><input class=" btn btn-outline-dark btn-sm mb-1 mr-2" type="submit" value="Confirm">
+                <a class=" btn btn-outline-dark btn-sm mb-1 mr-2" href=" {% url 'view' product.pk %}" role="button">Cancel
+                </a></p>
+            {#            <p><a href="{% url "find" article.pk %}">Cancel</a></p>#}
+        </form>
     </div>
 {% endblock %}
