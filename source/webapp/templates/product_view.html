@@ -3,13 +3,11 @@
 {% block title %}View{% endblock %}
 
 {% block menu %}
-    {#    <li><a href="{% url 'article_update' article.pk %}">Update</a></li>#}
-    {#    <li><a href="{% url 'article_delete' article.pk %}">Delete</a></li>#}
 {% endblock %}
 
 {% block content %}
-    <h1>{{ product.name }}</h1>
-    <p>Категория: {{ product.get_category_display }}</p>
+    <h1 class="p-3">{{ product.name }}</h1>
+    <p>Категория: <a href="{% url 'filter_category' product.category%}">{{ product.get_category_display }}</a></p>
     <p>Описание: {{ product.description }}</p>
     <p>Остаток: {{ product.amount }}</p>
     <p>Цена: {{ product.price }}</p>

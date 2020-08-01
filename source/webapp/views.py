@@ -1,16 +1,18 @@
-from django.shortcuts import render
-
-from django.http import HttpResponseNotAllowed, QueryDict
+from django.http import HttpResponseNotAllowed
 from django.shortcuts import render, get_object_or_404, redirect
 
 from webapp.forms import ProductForm
-from webapp.models import Product, CATEGORY_CHOICE, DEFAUL_CATEGORY
+from webapp.models import Product, CATEGORY_CHOICE
 
 
 def index_view(request):
     is_admin = request.GET.get('is_admin', None)
+    is_name = request.GET.get('name')
     if is_admin:
         order_date = Product.objects.all()
+    if is_name:
+        order_date = Product.objects.filter(name__icontains=is_name)\
+            .order_by('category', 'name')
     else:
         data = Product.objects.filter(amount__gt=1)
         order_date = data.order_by('category', 'name')
@@ -91,16 +93,17 @@ def product_delete_view(request, pk):
         return redirect('index')
 
 
-def filter_name_view(request):
+def filter_name_view(request, category):
     name = request.GET['name']
-    data = Product.objects.filter(name__icontains=name)
+    data = Product.objects.filter(name__icontains=name, category=category).order_by('name')
     if data:
         return render(request, 'index.html', context={
-            'products': data})
+            'products': data,
+            'category': CATEGORY_CHOICE})
     return redirect('index')
 
 
-def filter_category(request,category):
+def filter_category(request, category):
     data = Product.objects.filter(category=category)
     if data:
         order_date = data.order_by('name')
@@ -110,5 +113,5 @@ def filter_category(request,category):
         return render(request, 'product_category_filter.html', context={
             'products': order_date,
             'category': CATEGORY_CHOICE,
-            'sel_cat':sel_cat})
+            'sel_cat': sel_cat})
     return redirect('index')

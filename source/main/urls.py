@@ -26,6 +26,6 @@ urlpatterns = [
     path('product_create/', product_create_view, name='product_create'),
     path('product_update/<int:pk>',product_update_view, name='product_update'),
     path('product_delete/<int:pk>', product_delete_view, name='product_delete'),
-    path('filter_name/', filter_name_view, name='filter_name'),
+    path('filter_name/<category>', filter_name_view, name='filter_name'),
     path('filter_category/<category>', filter_category, name='filter_category')
 ]

@@ -44,11 +44,88 @@
   }
 },
 {
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "\u0417\u043e\u043d\u0442\u0438\u043a",
+    "description": "\u0417\u043e\u043d\u0442\u0438\u043a \u043e\u0442 \u0434\u043e\u0436\u0434\u044f",
+    "category": "other",
+    "amount": 2,
+    "price": "250.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "\u0412\u043e\u0434\u043a\u0430",
+    "description": "\u0412\u043e\u0434\u043a\u0430 \u043d\u0435 \u043f\u0430\u043b\u0435\u043d\u043d\u0430\u044f",
+    "category": "food",
+    "amount": 23,
+    "price": "150.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 12,
+  "fields": {
+    "name": "\u041d\u043e\u0443\u0442\u0431\u0443\u043a Asus",
+    "description": "cpu 15\r\nddr4- 16gb\r\nssd-2tb",
+    "category": "electronics",
+    "amount": 10,
+    "price": "33250.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 13,
+  "fields": {
+    "name": "\u041d\u043e\u0443\u0442\u0431\u0443\u043a Asus2",
+    "description": "\u0432\u0444\u0430\u043f\u0432\u0444\u0430\u043f\r\nfdagdfag\r\ndsfgfdsg\r\nertref",
+    "category": "electronics",
+    "amount": 5,
+    "price": "40000.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 14,
+  "fields": {
+    "name": "\u041b\u043e\u043f\u0430\u0442\u0430",
+    "description": "\u041c\u0435\u0442\u0430\u043b\u0438\u0447\u0435\u0441\u043a\u0430\u044f \u043b\u043e\u043f\u0430\u0442\u0430 \u0428\u0422\u042b\u041a\u041e\u0412\u0410\u042f \r\n\u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u0432 \u0421\u0421\u0421\u0420",
+    "category": "household",
+    "amount": 46,
+    "price": "250.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 15,
+  "fields": {
+    "name": "Acer",
+    "description": "Acer gfhhfgg\\fgh\r\nfdghgdf\r\nhdfg\r\nh\r\ndfghdfgh",
+    "category": "electronics",
+    "amount": 5,
+    "price": "32000.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 16,
+  "fields": {
+    "name": "Acer",
+    "description": "sdffss",
+    "category": "toys",
+    "amount": 4,
+    "price": "2500.00"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$F7hjhvXedVmQ$4r1aHmNb7Vm+Fo00hhVhSDprhjfb7kyfEXydSgTgM/4=",
-    "last_login": "2020-07-30T14:10:16.588Z",
+    "last_login": "2020-07-30T16:14:06.870Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

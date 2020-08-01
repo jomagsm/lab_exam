@@ -1,8 +1,6 @@
 <div class="form-group">
     <div class="form-group">
         <label for="name">{{ form.label }}</label>
-        {#                <input type="text" name="{{ form.name.name }}" class="form-control" id="name" placeholder="Введите название"#}
-        {#                   value="{{ form.name.value }}">#}
         <p>{{ form }}</p>
         {% for error in form.errors %}
             <p class="text-danger">{{ error }}</p>
