@@ -32,6 +32,9 @@
             </div>
         </div>
     </form>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
     <div class="row">
         {% for product in products %}
             {% include 'partial/product_list.html' %}
