@@ -1,10 +1,10 @@
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import View, ListView, DeleteView
+from django.views.generic import View, ListView, DeleteView, CreateView
 from django.urls import reverse, reverse_lazy
 
-from webapp.forms import ProductForm, BasketForm
-from webapp.models import Basket, Product
+from webapp.forms import ProductForm, BasketForm, OrderForm
+from webapp.models import Basket, Product, Order, OrderProduct
 
 
 class BasketCreateView(View):
@@ -27,7 +27,7 @@ class BasketCreateView(View):
             else:
                 return redirect('view', pk=product.pk)
         else:
-            if product.amount > qty:
+            if product.amount >= qty:
                 basket = Basket.objects.create(product=product, qty=qty)
                 basket.save()
             else:
@@ -49,7 +49,7 @@ class BasketList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = BasketForm
+        context['form'] = OrderForm
         data = Basket.objects.all()
         total = 0
         for i in data:
@@ -65,3 +65,27 @@ class BasketDeleteView(DeleteView):
 
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
+
+
+class OrderCreateView(CreateView):
+    model = Order
+    form_class = OrderForm
+
+    def form_valid(self, form):
+        name = form.cleaned_data['name']
+        address = form.cleaned_data['address']
+        phone = form.cleaned_data['phone']
+        order = Order.objects.create(name=name, address=address, phone=phone)
+        basket = Basket.objects.all()
+        for i in basket:
+            product =Product.objects.get(pk=i.product.pk)
+            OrderProduct.objects.create(product=i.product,
+                                        order=order,
+                                        qty=i.qty)
+            product.amount = product.amount-i.qty
+            product.save()
+        basket.delete()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('index')

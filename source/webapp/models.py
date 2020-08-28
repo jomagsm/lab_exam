@@ -29,3 +29,27 @@ class Basket(models.Model):
 
     def get_total(self):
         return self.qty * self.product.price
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=31, verbose_name='Тег')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+
+    def __str__(self):
+        return self.name
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=100, null=False,blank=False, verbose_name='Имя')
+    address = models.CharField(max_length=1000, null=False, blank=False, verbose_name='Адрес')
+    phone = models.CharField(max_length=100, null=False, blank=False, verbose_name='Телефон')
+    data = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+
+
+class OrderProduct(models.Model):
+    product = models.ForeignKey('webapp.Product', related_name='product_orders', on_delete=models.CASCADE, verbose_name='Продукт')
+    order = models.ForeignKey('webapp.Order', related_name='order_products', on_delete=models.CASCADE, verbose_name='Заказ')
+    qty = models.IntegerField(verbose_name='Количество', validators=[MinValueValidator(0)])
+
+    def __str__(self):
+        return "{} | {}".format(self.order, self.product)

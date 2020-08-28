@@ -36,4 +36,12 @@
   <tr><td></td><td></td><td></td><td>Всего</td><td>{{ total }} </td></tr>
   </tbody>
 </table>
+            <form action="{% url 'order_create' %}" method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                {% include 'partial/product_form.html' with form=field %}
+            {% endfor %}
+            <input type="submit" value="Оформить заказ">
+        </form>
 {% endblock %}
