@@ -16,16 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from webapp.view.product_views import IndexView, view_product, product_create_view, product_update_view, product_delete_view, \
-    filter_name_view, filter_category
+from webapp.view import BasketCreateView,BasketList,BasketDeleteView
+from webapp.view.product_views import IndexView, ProductView, \
+    filter_name_view, filter_category, ProductCreateView, ProductUpdateView, ProductDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('view/<int:pk>/', view_product, name='view'),
-    path('product_create/', product_create_view, name='product_create'),
-    path('product_update/<int:pk>',product_update_view, name='product_update'),
-    path('product_delete/<int:pk>', product_delete_view, name='product_delete'),
+    path('view/<int:pk>/', ProductView.as_view(), name='view'),
+    path('product_create/', ProductCreateView.as_view(), name='product_create'),
+    path('product_update/<int:pk>',ProductUpdateView.as_view(), name='product_update'),
+    path('product_delete/<int:pk>', ProductDeleteView.as_view(), name='product_delete'),
     path('filter_name/<category>', filter_name_view, name='filter_name'),
-    path('filter_category/<category>', filter_category, name='filter_category')
+    path('filter_category/<category>', filter_category, name='filter_category'),
+    path('basket_create/<int:pk>',BasketCreateView.as_view(), name='basket_create'),
+    path('basket_list/', BasketList.as_view(), name='basket_list'),
+    path('basket_delete/<int:pk>', BasketDeleteView.as_view(), name='basket_delete')
 ]

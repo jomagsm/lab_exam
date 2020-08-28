@@ -21,3 +21,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
+
+
+class Basket(models.Model):
+    product = models.ForeignKey('webapp.Product', related_name='basket', verbose_name='Продукт',on_delete=models.CASCADE)
+    qty = models.IntegerField(verbose_name='Количество', validators=[MinValueValidator(0)])
+
+    def get_total(self):
+        return self.qty * self.product.price

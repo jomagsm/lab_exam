@@ -3,6 +3,14 @@
 {% block title %}View{% endblock %}
 
 {% block menu %}
+    <li class="nav-item active">
+    {% url "basket_create" product.pk as action_url %}
+    {% include 'partial/basket_form.html' with action_url=action_url%}
+{#    <form class="form-inline my-2 my-lg-0" action="{% url 'basket_create' product.pk %}">#}
+{#      <input class="form-control mr-sm-2" type="search" placeholder="Количество" aria-label="Kokbxtcndj">#}
+{#      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Добавить в корзину</button>#}
+{#    </form>#}
+    </li>
 {% endblock %}
 
 {% block content %}

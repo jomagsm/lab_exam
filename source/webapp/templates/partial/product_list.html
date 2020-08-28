@@ -24,6 +24,8 @@
                 </svg>
                 Удалить
             </a>
+            {% url "basket_create" product.pk as action_url %}
+            {% include 'partial/basket_form.html' with action_url=action_url%}
         </div>
     </div>
 </div>
