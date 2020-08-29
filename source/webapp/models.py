@@ -16,7 +16,7 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name='Цена', max_digits=7, decimal_places=2, validators=[MinValueValidator(0)])
 
     def __str__(self):
-        return "{}. {}".format(self.name, self.amount)
+        return "{}".format(self.name)
 
     class Meta:
         verbose_name = 'Товар'
