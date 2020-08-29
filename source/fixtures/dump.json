@@ -4,9 +4,9 @@
   "pk": 1,
   "fields": {
     "name": "\u041b\u043e\u0434\u043a\u0430 \u0440\u0435\u0437\u0438\u043d\u043e\u0432\u0430\u044f",
-    "description": "",
+    "description": "rgdfgfgfdfdgfdgfdfgdg",
     "category": "other",
-    "amount": 1,
+    "amount": 5,
     "price": "1000.00"
   }
 },
@@ -17,7 +17,7 @@
     "name": "\u0412\u043e\u0434\u0430",
     "description": "\u043c\u0438\u043d\u0435\u0440\u0430\u043b\u044c\u043d\u0430\u044f \u0432\u043e\u0434\u0430, \u0445\u043e\u043b\u043e\u0434\u043d\u0430\u044f",
     "category": "food",
-    "amount": 100,
+    "amount": 95,
     "price": "20.00"
   }
 },
@@ -39,7 +39,7 @@
     "name": "\u0418\u0433\u0440\u0443\u0448\u043a\u0430 \u041a\u0430\u043c\u0430\u0437",
     "description": "\u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u0432 \u0420\u043e\u0441\u0441\u0438\u0438",
     "category": "toys",
-    "amount": 25,
+    "amount": 50,
     "price": "500.00"
   }
 },
@@ -78,17 +78,6 @@
 },
 {
   "model": "webapp.product",
-  "pk": 13,
-  "fields": {
-    "name": "\u041d\u043e\u0443\u0442\u0431\u0443\u043a Asus2",
-    "description": "\u0432\u0444\u0430\u043f\u0432\u0444\u0430\u043f\r\nfdagdfag\r\ndsfgfdsg\r\nertref",
-    "category": "electronics",
-    "amount": 5,
-    "price": "40000.00"
-  }
-},
-{
-  "model": "webapp.product",
   "pk": 14,
   "fields": {
     "name": "\u041b\u043e\u043f\u0430\u0442\u0430",
@@ -105,7 +94,7 @@
     "name": "Acer",
     "description": "Acer gfhhfgg\\fgh\r\nfdghgdf\r\nhdfg\r\nh\r\ndfghdfgh",
     "category": "electronics",
-    "amount": 5,
+    "amount": 45,
     "price": "32000.00"
   }
 },
@@ -121,11 +110,177 @@
   }
 },
 {
+  "model": "webapp.product",
+  "pk": 17,
+  "fields": {
+    "name": "dfgdffgddfgs",
+    "description": "dfdgdfhdfgfdsfds",
+    "category": "other",
+    "amount": 0,
+    "price": "3443.00"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 1,
+  "fields": {
+    "name": "324234",
+    "address": "435543345345",
+    "phone": "2342234432234",
+    "data": "2020-08-28T14:21:32.866Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 2,
+  "fields": {
+    "name": "23234",
+    "address": "3434534534345",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:30:25.444Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 3,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:32:47.010Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 4,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:34:02.052Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 5,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:34:02.060Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 6,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:35:47.815Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 7,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-28T14:35:47.829Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 8,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-29T15:47:53.283Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 9,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-29T15:47:53.295Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 10,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-29T15:48:19.265Z"
+  }
+},
+{
+  "model": "webapp.order",
+  "pk": 11,
+  "fields": {
+    "name": "+996550002300",
+    "address": "Chuy 155",
+    "phone": "+996550002300",
+    "data": "2020-08-29T15:48:19.277Z"
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 1,
+  "fields": {
+    "product": 15,
+    "order": 2,
+    "qty": 3
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 2,
+  "fields": {
+    "product": 15,
+    "order": 3,
+    "qty": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 3,
+  "fields": {
+    "product": 15,
+    "order": 6,
+    "qty": 1
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 4,
+  "fields": {
+    "product": 2,
+    "order": 8,
+    "qty": 2
+  }
+},
+{
+  "model": "webapp.orderproduct",
+  "pk": 5,
+  "fields": {
+    "product": 2,
+    "order": 10,
+    "qty": 3
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$F7hjhvXedVmQ$4r1aHmNb7Vm+Fo00hhVhSDprhjfb7kyfEXydSgTgM/4=",
-    "last_login": "2020-07-30T16:14:06.870Z",
+    "last_login": "2020-08-29T15:56:34.055Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
