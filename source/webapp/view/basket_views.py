@@ -25,15 +25,15 @@ class BasketCreateView(View):
             if product.amount > basket.qty:
                 basket.save()
             else:
-                return redirect('view', pk=product.pk)
+                return redirect('index')
         else:
             if product.amount >= qty:
                 basket = Basket.objects.create(product=product, qty=qty)
                 basket.save()
             else:
-                return redirect('view', pk=product.pk)
+                return redirect('index')
         # # form.save_m2m()  ## для сохранения связей многие-ко-многим
-        return redirect('view', pk=product.pk)
+        return redirect('index')
 
 
 class BasketList(ListView):
@@ -66,6 +66,21 @@ class BasketDeleteView(DeleteView):
     def get(self, request, *args, **kwargs):
         return self.delete(request, *args, **kwargs)
 
+
+class BasketOneDeleteView(DeleteView):
+    template_name = 'basket/basket_list.html'
+    model = Basket
+    success_url = reverse_lazy('basket_list')
+
+    def get(self,request, *args, **kwargs):
+        pk = self.kwargs['pk']
+        basket = get_object_or_404(Basket, pk=pk)
+        if basket.qty > 1:
+            basket.qty = basket.qty-1
+            basket.save()
+        else:
+            return self.delete(request, *args, **kwargs)
+        return redirect('basket_list')
 
 class OrderCreateView(CreateView):
     model = Order

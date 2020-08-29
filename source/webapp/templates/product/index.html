@@ -18,6 +18,7 @@
     </li>
 {% endblock %}
 {% block content %}
+    {% csrf_token %}
     <form action="{% url 'index' %}" method="GET">
         <div class="form-group row mt-2">
             <label for="colFormLabelSm" class="col-sm-1 col-form-label col-form-label-sm">Поиск</label>

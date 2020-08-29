@@ -3,9 +3,31 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from webapp.forms import ProductForm, BasketForm
+from webapp.forms import ProductForm, BasketForm, ProfileSearchForm
 from webapp.models import Product, CATEGORY_CHOICE
 
+
+
+# class IndexView(SearchView):
+#     template_name = 'product/index.html'
+#     context_object_name = 'products'
+#     paginate_by = 5
+#     paginate_orphans = 0
+#     model = Product
+#     ordering = ['category', 'name']
+#     search_fields = ['name__icontains', 'category__icontains']
+#
+#     def get_queryset(self):
+#         data = Product.objects.all().filter(amount__gt=0)
+#         if not self.request.GET.get('is_admin', None):
+#             data = Product.objects.all().filter(amount__gt=0)
+#             data = data.order_by('category', 'name')
+#         return data
+    # def get_queryset(self):
+    #     data = super().get_queryset()
+    #     if not self.request.GET.get('is_admin', None):
+    #         data = data.filter(status='moderated')
+    #     return data
 
 class IndexView(ListView):
     template_name = 'product/index.html'
@@ -13,9 +35,15 @@ class IndexView(ListView):
     model = Product
     paginate_by = 5
     paginate_orphans = 0
+    form_class = ProfileSearchForm
 
     def get_queryset(self):
+        form = self.form_class(self.request.GET)
         data = Product.objects.all().filter(amount__gt=0)
+        if form.is_valid():
+            search = form.cleaned_data['name']
+            order_data = data.filter(name__icontains=search).order_by('name')
+            return order_data
         if not self.request.GET.get('is_admin', None):
             data = Product.objects.all().filter(amount__gt=0)
             order_date = data.order_by('category', 'name')
@@ -159,6 +187,33 @@ def filter_name_view(request, category):
             'products': data,
             'category': CATEGORY_CHOICE})
     return redirect('index')
+
+# class FilterView(ListView):
+#     template_name = 'product/index.html'
+#     context_object_name = 'products'
+#     model = Product
+#     paginate_by = 5
+#     paginate_orphans = 0
+#     form_class = ProfileSearchForm
+#
+#     def get_queryset(self):
+#
+#         form = self.form_class(self.request.GET)
+#         data = Product.objects.all().filter(amount__gt=0)
+#         if form.is_valid():
+#             search = form.cleaned_data['name']
+#             order_data = data.filter(name__icontains=search).order_by('name')
+#             return order_data
+#         if not self.request.GET.get('is_admin', None):
+#             data = Product.objects.all().filter(amount__gt=0)
+#             order_date = data.order_by('category', 'name')
+#         return order_date
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         print(context['category'])
+#         context['form'] = BasketForm
+#         return context
 
 
 def filter_category(request, category):

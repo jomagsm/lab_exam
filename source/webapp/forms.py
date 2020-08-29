@@ -19,3 +19,7 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['name', 'address', 'phone']
+
+
+class ProfileSearchForm(forms.Form):
+    name = forms.CharField(required=False)
