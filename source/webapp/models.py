@@ -53,3 +53,5 @@ class OrderProduct(models.Model):
 
     def __str__(self):
         return "{} | {}".format(self.order, self.product)
+
+

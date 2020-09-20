@@ -16,8 +16,18 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 class OrderProductAdmin(admin.ModelAdmin):
-    list_display = ['product', 'qty']
+    list_display = ['order','product', 'qty']
 
+# class OrderProductAdmin(admin.ModelAdmin):
+#     model = OrderProduct
+#
+#
+# class ProductInline(admin.TabularInline):
+#     inlines = [OrderProduct]
+#
+#
+# class OrderInline(admin.TabularInline):
+#     inlines = [OrderProduct]
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Basket)
